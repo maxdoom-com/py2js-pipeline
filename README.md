@@ -26,3 +26,10 @@ Requirements
 ------------
 
 Install `inotify-tools` for using `make whenevery-something-changes`.
+
+Testing
+-------
+
+- Clone this repository and run the installation (see above).
+- Do a `make`.
+- Open example.html in your browser.
