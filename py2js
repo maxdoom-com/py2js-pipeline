@@ -1,0 +1,23 @@
+#!env/bin/python3
+from fire import Fire
+from pscript import script2js
+from jsmin import jsmin
+from tinypreprocessor import TinyPreProcessor
+
+
+class Cli:
+    def compile(self, filename):
+        modulename = filename.split('/')[-1].split('.')[0]
+        preproc = TinyPreProcessor(suffix=".py")
+        preproc.load(filename)
+        tmpfile = preproc.done()
+        script2js(tmpfile, namespace=modulename, target=f"{modulename}.js")
+
+    def minimize(self, filename):
+        outfile = '.'.join( filename.split('.')[0:-1] ) + '.min.js'
+        with open(outfile, "w") as output:
+            with open(filename) as input:
+                output.write(jsmin(input.read()))
+
+if __name__ == '__main__':
+    Fire(Cli())
