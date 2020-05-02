@@ -1,3 +1,5 @@
+BSD 2-Clause License
+
 Copyright 2020 Nico Hoffmann
 
 Redistribution and use in source and binary forms, with or without
